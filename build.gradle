@@ -23,7 +23,7 @@ version project.projectVersion
 
 ext {
     isCiBuild = System.getenv().get("TRAVIS") == 'true' || (System.getenv().get("CI") as Boolean)
-    commonBuild = 'https://raw.githubusercontent.com/rainboyan/grails-common-build/master'
+    commonBuild = 'https://raw.githubusercontent.com/rainboyan/grails-common-build/22.0.x'
 }
 
 apply plugin:'idea'
