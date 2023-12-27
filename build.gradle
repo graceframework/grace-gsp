@@ -32,12 +32,12 @@ allprojects {
     }
 }
 
-subprojects {
+subprojects { project ->
     version = project.projectVersion
 
     ext {
         userOrg = "grails"
-        isPlugin = name.startsWith('grace-plugin')
+        isPlugin = project.name.startsWith('grace-plugin')
         isBuildSnapshot = version.toString().endsWith("-SNAPSHOT")
     }
 
@@ -112,11 +112,11 @@ subprojects {
     publishing {
         publications {
             maven(MavenPublication) {
-                if (name.startsWith('grace-plugin')) {
-                    artifactId(name - 'grace-plugin-')
+                if (project.name.startsWith('grace-plugin')) {
+                    artifactId(project.name - 'grace-plugin-')
                 }
                 else {
-                    artifactId name
+                    artifactId project.name
                 }
                 groupId = project.group
                 version = project.version
