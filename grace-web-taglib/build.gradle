@@ -1,9 +1,9 @@
 dependencies {
     compileOnly "javax.servlet:javax.servlet-api:$servletApiVersion"
-    api "org.grails:grails-web-common:$grailsVersion"
-    api project(":grails-taglib")
+    api "org.graceframework:grace-web-common:$graceVersion"
+    api project(":grace-taglib")
 
-    testRuntimeOnly "org.grails:grails-spring:$grailsVersion"
+    testRuntimeOnly "org.graceframework:grace-spring:$graceVersion"
     testImplementation "org.springframework:spring-test:$springVersion"
 }
 

@@ -1,0 +1,47 @@
+ext {
+    isCiBuild = System.getenv().get("TRAVIS") == 'true' || System.getenv().get("CI") as Boolean
+}
+
+dependencies {
+    compileOnly "javax.servlet:javax.servlet-api:$servletApiVersion"
+    api project(":grace-web-gsp-taglib")
+
+    runtimeOnly(project(":grace-web-jsp"))
+    api "commons-lang:commons-lang:2.6"
+    api "org.graceframework:grace-core:$graceVersion"
+    api "org.graceframework:grace-plugin-codecs:$graceVersion"
+    api "org.graceframework:grace-plugin-url-mappings:$graceVersion"
+    implementation "org.graceframework:grace-web:$graceVersion"
+    implementation "org.graceframework:grace-plugin-controllers:$graceVersion"
+
+    testImplementation "org.graceframework:grace-test-support:$graceVersion"
+
+    testImplementation "javax.servlet.jsp:jsp-api:${jspApiVersion}"
+    testImplementation "org.springframework:spring-test:$springVersion"
+
+    testImplementation "taglibs:standard:${jstlVersion}"
+    testImplementation "javax.servlet:jstl:${jstlVersion}"
+
+    testImplementation "org.graceframework:grace-plugin-codecs:$graceVersion"
+}
+// disable main class
+// bootJar {
+//     mainClass.set('dummy.Application')
+// }
+// findMainClass.onlyIf { false }
+test {
+    if (isCiBuild) {
+        maxParallelForks = 1
+        forkEvery = 10
+    }
+    else {
+        maxParallelForks = 4
+        forkEvery = 20
+    }
+
+    jvmArgs = ['-Xmx1536M']
+    afterSuite {
+        System.out.print('.')
+        System.out.flush()
+    }
+}
