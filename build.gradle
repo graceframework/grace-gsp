@@ -112,6 +112,12 @@ subprojects {
     publishing {
         publications {
             maven(MavenPublication) {
+                if (name.startsWith('grace-plugin')) {
+                    artifactId(name - 'grace-plugin-')
+                }
+                else {
+                    artifactId name
+                }
                 groupId = project.group
                 version = project.version
 
