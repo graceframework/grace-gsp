@@ -39,7 +39,7 @@ subprojects { project ->
     version = project.projectVersion
 
     ext {
-        userOrg = "grails"
+        userOrg = "graceframework"
         isPlugin = project.name.startsWith('grace-plugin')
         isBuildSnapshot = version.toString().endsWith("-SNAPSHOT")
     }
