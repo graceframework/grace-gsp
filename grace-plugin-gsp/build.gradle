@@ -62,3 +62,9 @@ test {
         System.out.flush()
     }
 }
+
+jar {
+    enabled = true
+    archiveClassifier.set('')
+    includeEmptyDirs = false
+}
