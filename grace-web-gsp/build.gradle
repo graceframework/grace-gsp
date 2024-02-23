@@ -1,0 +1,15 @@
+dependencies {
+    compileOnly "org.apache.ant:ant:${antVersion}"
+    api "javax.servlet:javax.servlet-api:$servletApiVersion"
+    api project(":grace-gsp")
+    api "org.graceframework:grace-web-common:$graceVersion"
+    api project(":grace-web-taglib")
+
+    api project(":grace-web-sitemesh"), {
+        exclude group:'org.graceframework', module:'grace-web-common'
+    }
+
+    testImplementation "org.springframework:spring-test:$springVersion"
+    testImplementation "org.graceframework:grace-test:$graceVersion"
+    testRuntimeOnly "org.graceframework:grace-spring:$graceVersion"
+}
