@@ -1,0 +1,5 @@
+dependencies {
+    api "org.graceframework:grace-core:$graceVersion"
+    api project(":grace-taglib")
+    api "org.codehaus.groovy:groovy-templates:$groovyVersion"
+}

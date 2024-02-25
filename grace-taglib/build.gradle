@@ -1,0 +1,6 @@
+dependencies {
+    api "org.graceframework:grace-core:$graceVersion", {
+        exclude group:'org.graceframework', module:'grace-spring'
+    }
+    api "org.graceframework:grace-encoder:$graceVersion"
+}

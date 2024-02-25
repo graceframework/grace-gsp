@@ -1,4 +1,4 @@
-## Grails GSP
+## Grace GSP
 
 This subproject is required for all Grails 3 applications and plugins that require GSP processing.  If your project includes GSPs you should add the following to your `build.gradle` which is provided by the [Grails Gradle Plugin](https://github.com/grails/grails-core/tree/master/grails-gradle-plugin).
 
